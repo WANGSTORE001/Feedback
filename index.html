@@ -12,26 +12,37 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        :root {
+            --gold: #ffd700;
+            --green: #25D366;
+            --red: #ff4444;
+            --blue: #2196F3;
+            --discord: #7289da;
+            --dark: #05071a;
+            --card: rgba(255,255,255,0.04);
+            --border: rgba(255,255,255,0.08);
+        }
+
         body {
             min-height: 100vh;
             padding: 30px 20px;
             color: #fff;
             background:
-                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.15), transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(255, 0, 128, 0.15), transparent 50%),
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.1), transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 128, 0.1), transparent 50%),
                 linear-gradient(180deg, #05071a 0%, #0b102b 50%, #05071a 100%);
             background-attachment: fixed;
         }
 
         .container {
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 35px 25px;
+            margin-bottom: 30px;
+            padding: 30px 20px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             border: 1px solid rgba(255, 215, 0, 0.25);
@@ -39,16 +50,45 @@
         }
 
         header h1 {
-            font-size: 1.8rem;
-            color: #ffd700;
-            margin-bottom: 10px;
+            font-size: 1.7rem;
+            color: var(--gold);
+            margin-bottom: 8px;
         }
 
         .subtitle {
             color: #aaa;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
             margin-bottom: 20px;
         }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 7px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ddd;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-link.wa { border-color: rgba(37, 211, 102, 0.4); }
+        .contact-link.discord { border-color: rgba(114, 137, 218, 0.4); }
 
         .rating-summary {
             display: flex;
@@ -59,49 +99,251 @@
         }
 
         .rating-score {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: #ffd700;
+            color: var(--gold);
         }
 
         .stars {
-            font-size: 1.5rem;
-            color: #ffd700;
+            font-size: 1.3rem;
+            color: var(--gold);
         }
 
         .total-reviews {
             color: #888;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* FORM ULASAN */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            padding: 8px 14px;
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active {
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--gold);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .rating-breakdown {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 25px;
+        }
+
+        .rating-breakdown h3 {
+            font-size: 0.95rem;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .rating-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+        }
+
+        .rating-label {
+            width: 40px;
+            font-size: 0.85rem;
+        }
+
+        .rating-bar-container {
+            flex: 1;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .rating-bar {
+            height: 100%;
+            background: var(--gold);
+            border-radius: 4px;
+            transition: width 0.5s;
+        }
+
+        .rating-percent {
+            width: 45px;
+            text-align: right;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .search-box input, .search-box select {
+            flex: 1;
+            min-width: 140px;
+            margin: 0;
+        }
+
         .form-section {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(37, 211, 102, 0.05);
             border-radius: 16px;
             border: 1px solid rgba(37, 211, 102, 0.25);
-            padding: 25px;
-            margin-bottom: 35px;
+            padding: 22px;
+            margin-bottom: 25px;
         }
 
         .form-section h2 {
-            color: #25D366;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+            color: var(--green);
+            font-size: 1rem;
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            color: #ddd;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+
+        label span.required {
+            color: var(--red);
+            margin-left: 3px;
+        }
+
+        label span.optional {
+            color: #888;
+            font-size: 0.75rem;
+            margin-left: 8px;
         }
 
         input, textarea, select, button {
             width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+            border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background: rgba(255, 255, 255, 0.05);
             color: #fff;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+        }
+
+        input.error, select.error, textarea.error {
+            border-color: var(--red);
+            box-shadow: 0 0 0 1px var(--red);
         }
 
         input::placeholder, textarea::placeholder {
-            color: #777;
+            color: #666;
+        }
+
+        .error-text {
+            color: #ff6666;
+            font-size: 0.75rem;
+            margin: -8px 0 10px;
+            display: none;
+        }
+
+        .upload-area {
+            border: 2px dashed rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 14px;
+            transition: 0.2s;
+        }
+
+        .upload-area:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            background: rgba(255, 215, 0, 0.03);
+        }
+
+        .upload-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        #photoInput { display: none; }
+
+        .photo-preview-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        .photo-preview {
+            max-width: 100%;
+            max-height: 180px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .remove-photo {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--red);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         button {
@@ -110,90 +352,367 @@
             font-weight: 600;
             border: none;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s;
         }
 
-        button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        button:hover { transform: scale(1.02); }
+
+        button.small-btn {
+            width: auto;
+            padding: 6px 12px;
+            font-size: 0.8rem;
         }
 
-        /* DAFTAR ULASAN */
-        .reviews-section h2 {
-            color: #ffd700;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+        .btn-danger {
+            background: linear-gradient(90deg, #ff4444, #cc0000);
+            color: #fff;
+        }
+
+        .btn-success {
+            background: linear-gradient(90deg, #25D366, #1fb855);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
         }
 
         .review-card {
-            background: rgba(255, 255, 255, 0.04);
+            background: var(--card);
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 18px 20px;
-            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            padding: 16px;
+            margin-bottom: 14px;
+            transition: 0.2s;
         }
 
         .review-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 6px;
         }
 
         .review-name {
             font-weight: 600;
             color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(37, 211, 102, 0.12);
+            color: var(--green);
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 6px;
         }
 
         .review-stars {
-            color: #ffd700;
-            font-size: 0.9rem;
+            color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        .review-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .meta-tag {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--gold);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .meta-tag.amount {
+            background: rgba(37, 211, 102, 0.1);
+            color: var(--green);
         }
 
         .review-date {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #666;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .review-text {
             color: #ccc;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .review-image {
+            max-width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-bottom: 10px;
+        }
+
+        .review-image:hover { transform: scale(1.01); }
+
+        .review-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(255,255,255,0.08);
+        }
+
+        .like-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin: 0;
+            width: auto;
+        }
+
+        .like-btn:hover, .like-btn.liked {
+            color: #ff6b8a;
+        }
+
+        .reply-btn, .share-btn {
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            cursor: pointer;
+            margin: 0;
+            width: auto;
+        }
+
+        .reply-btn:hover { color: var(--gold); }
+        .share-btn:hover { color: var(--blue); }
+
+        .owner-reply {
+            background: rgba(37, 211, 102, 0.05);
+            border-left: 2px solid var(--green);
+            padding: 10px 12px;
+            margin-top: 10px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .reply-label {
+            font-size: 0.7rem;
+            color: var(--green);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .reply-text {
+            font-size: 0.85rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .reply-form {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+        }
+
+        .reply-form textarea {
+            margin-bottom: 8px;
+        }
+
+        .faq-section h2 {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            padding: 0 15px 15px;
+            display: none;
+            font-size: 0.85rem;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .faq-answer.show { display: block; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .payment-tag {
+            background: rgba(37, 211, 102, 0.1);
+            color: var(--green);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--green);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .image-modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #fff;
+            font-size: 26px;
+            cursor: pointer;
         }
 
         .empty-state {
             text-align: center;
             padding: 40px 20px;
             color: #666;
+            font-size: 0.9rem;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #666;
+        .success-msg, .warning-box {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            display: none;
             font-size: 0.85rem;
         }
 
         .success-msg {
             background: rgba(37, 211, 102, 0.1);
             border: 1px solid rgba(37, 211, 102, 0.3);
-            color: #25D366;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: none;
+            color: var(--green);
+        }
+
+        .warning-box {
+            background: rgba(255, 170, 0, 0.08);
+            border: 1px solid rgba(255, 170, 0, 0.3);
+            color: #ffcc00;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        .admin-toggle {
+            color: #333;
+            font-size: 0.7rem;
+            cursor: pointer;
+            user-select: none;
+            margin-top: 8px;
+        }
+
+        .hidden { display: none !important; }
+        .admin-status {
+            display: inline-block;
+            background: rgba(37, 211, 102, 0.15);
+            color: var(--green);
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-left: 6px;
         }
     </style>
 </head>
 <body>
+    <div class="notification" id="notification"></div>
+    <div class="image-modal" id="imageModal" onclick="closeImageModal()">
+        <span class="image-modal-close">&times;</span>
+        <img id="modalImage" src="" alt="Foto Ulasan">
+    </div>
+
     <div class="container">
         <header>
-            <h1>🏪 WANG STORE — REPUTASI</h1>
-            <p class="subtitle">Lihat ulasan dari pelanggan kami yang sudah percaya</p>
+            <h1>🏪 WANG STORE — REPUTASI <span id="adminBadge" class="admin-status hidden">ADMIN</span></h1>
+            <p class="subtitle">Terpercaya & Tercepat — Lihat bukti transaksi pelanggan kami</p>
             
+            <div class="contact-links">
+                <a href="https://wa.me/6289503312050" target="_blank" class="contact-link wa">💬 Hubungi Admin</a>
+                <a href="https://whatsapp.com/channel/0029V9uHj0z8B7fK9T6cX2p3" target="_blank" class="contact-link wa">📢 Saluran WA</a>
+                <a href="https://chat.whatsapp.com/DbZ8X9qY56rI7dKz9X7xQ9" target="_blank" class="contact-link wa">👥 Grup WA</a>
+                <a href="https://discord.gg/ciomuda" target="_blank" class="contact-link discord">🎮 Discord</a>
+            </div>
+
             <div class="rating-summary">
                 <div class="rating-score" id="avgRating">4.9</div>
                 <div>
@@ -203,138 +722,27 @@
             </div>
         </header>
 
-        <!-- FORM KIRIM ULASAN -->
-        <div class="form-section">
-            <h2>✍️ Kirim Ulasan Kamu</h2>
-            <div class="success-msg" id="successMsg">✅ Terima kasih! Ulasan kamu sudah terkirim</div>
-            
-            <form id="reviewForm">
-                <input type="text" id="nameInput" placeholder="Nama / Username Roblox" required>
-                <select id="starInput" required>
-                    <option value="">— Beri Penilaian —</option>
-                    <option value="5">★★★★★ — Sangat Memuaskan</option>
-                    <option value="4">★★★★ — Bagus</option>
-                    <option value="3">★★★ — Cukup</option>
-                    <option value="2">★★ — Kurang</option>
-                    <option value="1">★ — Buruk</option>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="ulasan">📋 Ulasan</button>
+            <button class="tab-btn" data-tab="kirim">✍️ Kirim Ulasan</button>
+            <button class="tab-btn" data-tab="statistik">📊 Statistik</button>
+            <button class="tab-btn" data-tab="faq">❓ FAQ</button>
+        </div>
+
+        <div class="tab-content active" id="ulasan-tab">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Cari nama/transaksi..." oninput="filterReviews()">
+                <select id="filterStar" onchange="filterReviews()">
+                    <option value="">Semua Bintang</option>
+                    <option value="5">⭐⭐⭐⭐⭐ 5 Bintang</option>
+                    <option value="4">⭐⭐⭐⭐ 4 Bintang</option>
+                    <option value="3">⭐⭐⭐ 3 Bintang</option>
+                    <option value="2">⭐⭐ 2 Bintang</option>
+                    <option value="1">⭐ 1 Bintang</option>
                 </select>
-                <textarea id="reviewInput" rows="4" placeholder="Ceritakan pengalaman kamu berbelanja di sini..." required></textarea>
-                <button type="submit">📤 Kirim Ulasan</button>
-            </form>
-        </div>
-
-        <!-- DAFTAR ULASAN -->
-        <div class="reviews-section">
-            <h2>📋 Semua Ulasan</h2>
-            <div id="reviewsList">
-                <div class="empty-state">
-                    Belum ada ulasan. Jadilah yang pertama mengirim ulasan!
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p>🏪 WANG STORE — Terpercaya &amp; Tercepat</p>
-            <p>⚠️ Ulasan disimpan secara lokal di browser</p>
-        </footer>
-    </div>
-
-    <script>
-        const reviewsList = document.getElementById('reviewsList');
-        const reviewForm = document.getElementById('reviewForm');
-        const successMsg = document.getElementById('successMsg');
-        const totalCount = document.getElementById('totalCount');
-        const avgRating = document.getElementById('avgRating');
-        const starsDisplay = document.getElementById('starsDisplay');
-
-        // Ambil data ulasan dari penyimpanan browser
-        let reviews = JSON.parse(localStorage.getItem('wangstore_reviews')) || [];
-
-        // Tampilkan ulasan yang tersimpan
-        function renderReviews() {
-            if (reviews.length === 0) {
-                reviewsList.innerHTML = `<div class="empty-state">Belum ada ulasan. Jadilah yang pertama mengirim ulasan!</div>`;
-                totalCount.textContent = '0';
-                avgRating.textContent = '4.9';
-                starsDisplay.textContent = '★★★★★';
-                return;
-            }
-
-            // Urutkan dari yang terbaru di atas
-            reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-            // Hitung rata-rata
-            const total = reviews.reduce((sum, r) => sum + r.stars, 0);
-            const avg = (total / reviews.length).toFixed(1);
-            totalCount.textContent = reviews.length;
-            avgRating.textContent = avg;
-            
-            // Tampilkan bintang rata-rata
-            const fullStars = Math.round(avg);
-            starsDisplay.textContent = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
-
-            // Render daftar ulasan
-            reviewsList.innerHTML = reviews.map(r => `
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-name">${escapeHtml(r.name)}</div>
-                        <div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div>
-                    </div>
-                    <div class="review-date">${formatDate(r.date)}</div>
-                    <div class="review-text">${escapeHtml(r.text)}</div>
-                </div>
-            `).join('');
-        }
-
-        // Kirim ulasan baru
-        reviewForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('nameInput').value.trim();
-            const stars = parseInt(document.getElementById('starInput').value);
-            const text = document.getElementById('reviewInput').value.trim();
-
-            const newReview = {
-                id: Date.now(),
-                name: name,
-                stars: stars,
-                text: text,
-                date: new Date().toISOString()
-            };
-
-            reviews.push(newReview);
-            localStorage.setItem('wangstore_reviews', JSON.stringify(reviews));
-            
-            // Tampilkan pesan sukses
-            successMsg.style.display = 'block';
-            reviewForm.reset();
-            renderReviews();
-            
-            // Sembunyikan pesan sukses setelah 3 detik
-            setTimeout(() => {
-                successMsg.style.display = 'none';
-            }, 3000);
-        });
-
-        // Fungsi bantu
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        function formatDate(dateStr) {
-            const d = new Date(dateStr);
-            return d.toLocaleDateString('id-ID', { 
-                day: 'numeric', 
-                month: 'long', 
-                year: 'numeric' 
-            });
-        }
-
-        // Inisialisasi saat halaman dibuka
-        renderReviews();
-    </script>
-</body>
-  </html>
-    
+                <select id="filterType" onchange="filterReviews()">
+                    <option value="">Semua Jenis Transaksi</option>
+                    <option value="Robux Via Send">Robux Via Send</option>
+                    <option value="Robux Via Group">Robux Via Group</option>
+                    <option value="Top Up Lainnya">Top Up Lainnya</option>
+                    <option value="Jasa La
