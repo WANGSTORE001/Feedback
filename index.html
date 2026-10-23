@@ -12,37 +12,26 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        :root {
-            --gold: #ffd700;
-            --green: #25D366;
-            --red: #ff4444;
-            --blue: #2196F3;
-            --discord: #7289da;
-            --dark: #05071a;
-            --card: rgba(255,255,255,0.04);
-            --border: rgba(255,255,255,0.08);
-        }
-
         body {
             min-height: 100vh;
             padding: 30px 20px;
             color: #fff;
             background:
-                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.1), transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(255, 0, 128, 0.1), transparent 50%),
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.15), transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 128, 0.15), transparent 50%),
                 linear-gradient(180deg, #05071a 0%, #0b102b 50%, #05071a 100%);
             background-attachment: fixed;
         }
 
         .container {
-            max-width: 680px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 30px;
-            padding: 30px 20px;
+            margin-bottom: 40px;
+            padding: 35px 25px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             border: 1px solid rgba(255, 215, 0, 0.25);
@@ -50,45 +39,49 @@
         }
 
         header h1 {
-            font-size: 1.7rem;
-            color: var(--gold);
-            margin-bottom: 8px;
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 10px;
         }
 
         .subtitle {
             color: #aaa;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
         }
 
         .contact-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
         .contact-link {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            padding: 7px 12px;
+            gap: 6px;
+            padding: 8px 14px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             color: #ddd;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             transition: 0.2s;
         }
 
         .contact-link:hover {
+            border-color: rgba(37, 211, 102, 0.4);
+            background: rgba(37, 211, 102, 0.05);
             transform: translateY(-2px);
         }
 
         .contact-link.wa { border-color: rgba(37, 211, 102, 0.4); }
         .contact-link.discord { border-color: rgba(114, 137, 218, 0.4); }
+        .contact-link.wa:hover { background: rgba(37, 211, 102, 0.08); }
+        .contact-link.discord:hover { background: rgba(114, 137, 218, 0.08); }
 
         .rating-summary {
             display: flex;
@@ -99,208 +92,87 @@
         }
 
         .rating-score {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--gold);
+            color: #ffd700;
         }
 
         .stars {
-            font-size: 1.3rem;
-            color: var(--gold);
+            font-size: 1.5rem;
+            color: #ffd700;
         }
 
         .total-reviews {
             color: #888;
-            font-size: 0.85rem;
-        }
-
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding-bottom: 10px;
-        }
-
-        .tab-btn {
-            padding: 8px 14px;
-            background: transparent;
-            border: none;
-            color: #888;
             font-size: 0.9rem;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: 0.2s;
-        }
-
-        .tab-btn.active {
-            background: rgba(255, 215, 0, 0.15);
-            color: var(--gold);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .stat-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold);
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: #888;
-            margin-top: 4px;
-        }
-
-        .rating-breakdown {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 18px;
-            margin-bottom: 25px;
-        }
-
-        .rating-breakdown h3 {
-            font-size: 0.95rem;
-            color: #ddd;
-            margin-bottom: 15px;
-        }
-
-        .rating-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 8px 0;
-        }
-
-        .rating-label {
-            width: 40px;
-            font-size: 0.85rem;
-        }
-
-        .rating-bar-container {
-            flex: 1;
-            height: 8px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .rating-bar {
-            height: 100%;
-            background: var(--gold);
-            border-radius: 4px;
-            transition: width 0.5s;
-        }
-
-        .rating-percent {
-            width: 45px;
-            text-align: right;
-            font-size: 0.8rem;
-            color: #888;
-        }
-
-        .search-box {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .search-box input, .search-box select {
-            flex: 1;
-            min-width: 140px;
-            margin: 0;
         }
 
         .form-section {
             background: rgba(37, 211, 102, 0.05);
             border-radius: 16px;
             border: 1px solid rgba(37, 211, 102, 0.25);
-            padding: 22px;
-            margin-bottom: 25px;
+            padding: 25px;
+            margin-bottom: 35px;
         }
 
         .form-section h2 {
-            color: var(--green);
-            font-size: 1rem;
-            margin-bottom: 18px;
+            color: #25D366;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
             color: #ddd;
-            font-size: 0.85rem;
-            margin-bottom: 5px;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
         }
 
         label span.required {
-            color: var(--red);
+            color: #ff4444;
             margin-left: 3px;
         }
 
         label span.optional {
             color: #888;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             margin-left: 8px;
         }
 
         input, textarea, select, button {
             width: 100%;
-            padding: 10px 14px;
-            margin-bottom: 14px;
-            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             background: rgba(255, 255, 255, 0.05);
             color: #fff;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         input.error, select.error, textarea.error {
-            border-color: var(--red);
-            box-shadow: 0 0 0 1px var(--red);
+            border-color: #ff4444;
+            box-shadow: 0 0 0 1px #ff4444;
         }
 
         input::placeholder, textarea::placeholder {
-            color: #666;
+            color: #777;
         }
 
         .error-text {
             color: #ff6666;
-            font-size: 0.75rem;
-            margin: -8px 0 10px;
+            font-size: 0.8rem;
+            margin: -10px 0 12px;
             display: none;
         }
 
         .upload-area {
             border: 2px dashed rgba(255, 215, 0, 0.3);
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 25px;
             text-align: center;
             cursor: pointer;
-            margin-bottom: 14px;
+            margin-bottom: 15px;
             transition: 0.2s;
         }
 
@@ -310,40 +182,43 @@
         }
 
         .upload-icon {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
+            font-size: 2rem;
+            margin-bottom: 8px;
         }
 
-        #photoInput { display: none; }
+        #photoInput {
+            display: none;
+        }
 
         .photo-preview-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 14px;
+            margin-bottom: 15px;
         }
 
         .photo-preview {
             max-width: 100%;
-            max-height: 180px;
+            max-height: 200px;
             border-radius: 8px;
             object-fit: cover;
         }
 
         .remove-photo {
             position: absolute;
-            top: -6px;
-            right: -6px;
-            background: var(--red);
+            top: -8px;
+            right: -8px;
+            background: #ff4444;
             color: #fff;
             border: none;
             border-radius: 50%;
-            width: 26px;
-            height: 26px;
-            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            font-size: 16px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
         button {
@@ -352,102 +227,94 @@
             font-weight: 600;
             border: none;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        button:hover { transform: scale(1.02); }
-
-        button.small-btn {
-            width: auto;
-            padding: 6px 12px;
-            font-size: 0.8rem;
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
 
         .btn-danger {
             background: linear-gradient(90deg, #ff4444, #cc0000);
-            color: #fff;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            margin: 3px;
+            width: auto;
+            display: inline-block;
         }
 
-        .btn-success {
-            background: linear-gradient(90deg, #25D366, #1fb855);
-            color: #fff;
+        .btn-danger:hover {
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
         }
 
-        .btn-secondary {
-            background: rgba(255,255,255,0.1);
-            color: #fff;
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            margin: 2px;
+            width: auto;
+        }
+
+        .reviews-section h2 {
+            color: #ffd700;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
         }
 
         .review-card {
-            background: var(--card);
+            background: rgba(255, 255, 255, 0.04);
             border-radius: 12px;
-            border: 1px solid var(--border);
-            padding: 16px;
-            margin-bottom: 14px;
-            transition: 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 18px 20px;
+            margin-bottom: 15px;
         }
 
         .review-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 6px;
-            flex-wrap: wrap;
-            gap: 6px;
+            margin-bottom: 8px;
         }
 
         .review-name {
             font-weight: 600;
             color: #fff;
-            font-size: 0.95rem;
-        }
-
-        .verified-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            background: rgba(37, 211, 102, 0.12);
-            color: var(--green);
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: 6px;
         }
 
         .review-stars {
-            color: var(--gold);
-            font-size: 0.85rem;
+            color: #ffd700;
+            font-size: 0.9rem;
         }
 
         .review-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 8px;
         }
 
         .meta-tag {
             background: rgba(255, 215, 0, 0.1);
-            color: var(--gold);
-            padding: 2px 7px;
+            color: #ffd700;
+            padding: 3px 8px;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
         }
 
         .meta-tag.amount {
             background: rgba(37, 211, 102, 0.1);
-            color: var(--green);
+            color: #25D366;
         }
 
         .review-date {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #666;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .review-text {
             color: #ccc;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 10px;
         }
@@ -457,157 +324,53 @@
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.2s;
-            margin-bottom: 10px;
         }
 
-        .review-image:hover { transform: scale(1.01); }
-
-        .review-actions {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            flex-wrap: wrap;
-            padding-top: 8px;
-            border-top: 1px dashed rgba(255,255,255,0.08);
+        .review-image:hover {
+            transform: scale(1.01);
         }
 
-        .like-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            background: transparent;
-            border: none;
-            color: #888;
-            font-size: 0.8rem;
-            padding: 4px 8px;
-            cursor: pointer;
-            transition: 0.2s;
-            margin: 0;
-            width: auto;
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
         }
 
-        .like-btn:hover, .like-btn.liked {
-            color: #ff6b8a;
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #666;
+            font-size: 0.85rem;
         }
 
-        .reply-btn, .share-btn {
-            background: transparent;
-            border: none;
-            color: #888;
-            font-size: 0.75rem;
-            padding: 4px 8px;
-            cursor: pointer;
-            margin: 0;
-            width: auto;
-        }
-
-        .reply-btn:hover { color: var(--gold); }
-        .share-btn:hover { color: var(--blue); }
-
-        .owner-reply {
-            background: rgba(37, 211, 102, 0.05);
-            border-left: 2px solid var(--green);
-            padding: 10px 12px;
-            margin-top: 10px;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .reply-label {
+        .admin-toggle {
+            color: #333;
             font-size: 0.7rem;
-            color: var(--green);
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .reply-text {
-            font-size: 0.85rem;
-            color: #aaa;
-            line-height: 1.5;
-        }
-
-        .reply-form {
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 8px;
-        }
-
-        .reply-form textarea {
-            margin-bottom: 8px;
-        }
-
-        .faq-section h2 {
-            color: var(--gold);
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        .faq-item {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            margin-bottom: 10px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 15px;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-            font-size: 0.9rem;
+            user-select: none;
+            margin-top: 10px;
         }
 
-        .faq-toggle {
-            transition: transform 0.3s;
-        }
-
-        .faq-answer {
-            padding: 0 15px 15px;
-            display: none;
-            font-size: 0.85rem;
-            color: #aaa;
-            line-height: 1.7;
-        }
-
-        .faq-answer.show { display: block; }
-        .faq-item.open .faq-toggle { transform: rotate(45deg); }
-
-        .payment-methods {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .payment-tag {
+        .success-msg {
             background: rgba(37, 211, 102, 0.1);
-            color: var(--green);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--green);
-            color: #fff;
-            padding: 12px 20px;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            color: #25D366;
+            padding: 12px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 9999;
-            transform: translateY(-100px);
-            opacity: 0;
-            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            display: none;
         }
 
-        .notification.show {
-            transform: translateY(0);
-            opacity: 1;
+        .warning-box {
+            background: rgba(255, 170, 0, 0.08);
+            border: 1px solid rgba(255, 170, 0, 0.3);
+            color: #ffcc00;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
         }
 
         .image-modal {
@@ -631,71 +394,29 @@
 
         .image-modal-close {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 20px;
+            right: 25px;
             color: #fff;
-            font-size: 26px;
+            font-size: 30px;
             cursor: pointer;
         }
 
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #666;
-            font-size: 0.9rem;
+        .hidden {
+            display: none !important;
         }
 
-        .success-msg, .warning-box {
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 18px;
-            display: none;
-            font-size: 0.85rem;
-        }
-
-        .success-msg {
-            background: rgba(37, 211, 102, 0.1);
-            border: 1px solid rgba(37, 211, 102, 0.3);
-            color: var(--green);
-        }
-
-        .warning-box {
-            background: rgba(255, 170, 0, 0.08);
-            border: 1px solid rgba(255, 170, 0, 0.3);
-            color: #ffcc00;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #666;
-            font-size: 0.8rem;
-        }
-
-        .admin-toggle {
-            color: #333;
-            font-size: 0.7rem;
-            cursor: pointer;
-            user-select: none;
-            margin-top: 8px;
-        }
-
-        .hidden { display: none !important; }
         .admin-status {
             display: inline-block;
             background: rgba(37, 211, 102, 0.15);
-            color: var(--green);
-            padding: 3px 8px;
-            border-radius: 10px;
-            font-size: 0.75rem;
-            margin-left: 6px;
+            color: #25D366;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="notification" id="notification"></div>
     <div class="image-modal" id="imageModal" onclick="closeImageModal()">
         <span class="image-modal-close">&times;</span>
         <img id="modalImage" src="" alt="Foto Ulasan">
@@ -704,15 +425,24 @@
     <div class="container">
         <header>
             <h1>🏪 WANG STORE — REPUTASI <span id="adminBadge" class="admin-status hidden">ADMIN</span></h1>
-            <p class="subtitle">Terpercaya & Tercepat — Lihat bukti transaksi pelanggan kami</p>
+            <p class="subtitle">Lihat ulasan dari pelanggan kami yang sudah percaya</p>
             
+            <!-- LINK KONTAK -->
             <div class="contact-links">
-                <a href="https://wa.me/6289503312050" target="_blank" class="contact-link wa">💬 Hubungi Admin</a>
-                <a href="https://whatsapp.com/channel/0029V9uHj0z8B7fK9T6cX2p3" target="_blank" class="contact-link wa">📢 Saluran WA</a>
-                <a href="https://chat.whatsapp.com/DbZ8X9qY56rI7dKz9X7xQ9" target="_blank" class="contact-link wa">👥 Grup WA</a>
-                <a href="https://discord.gg/ciomuda" target="_blank" class="contact-link discord">🎮 Discord</a>
+                <a href="https://wa.me/6289503312050" target="_blank" class="contact-link wa">
+                    💬 Hubungi Admin
+                </a>
+                <a href="https://whatsapp.com/channel/0029V9uHj0z8B7fK9T6cX2p3" target="_blank" class="contact-link wa">
+                    📢 Saluran WhatsApp
+                </a>
+                <a href="https://chat.whatsapp.com/DbZ8X9qY56rI7dKz9X7xQ9" target="_blank" class="contact-link wa">
+                    👥 Grup WhatsApp
+                </a>
+                <a href="https://discord.gg/ciomuda" target="_blank" class="contact-link discord">
+                    🎮 Discord
+                </a>
             </div>
-
+            
             <div class="rating-summary">
                 <div class="rating-score" id="avgRating">4.9</div>
                 <div>
@@ -722,27 +452,242 @@
             </div>
         </header>
 
-        <div class="tabs">
-            <button class="tab-btn active" data-tab="ulasan">📋 Ulasan</button>
-            <button class="tab-btn" data-tab="kirim">✍️ Kirim Ulasan</button>
-            <button class="tab-btn" data-tab="statistik">📊 Statistik</button>
-            <button class="tab-btn" data-tab="faq">❓ FAQ</button>
-        </div>
+        <div class="form-section">
+            <h2>✍️ Kirim Ulasan Kamu</h2>
+            <div class="success-msg" id="successMsg">✅ Terima kasih! Ulasan kamu sudah terkirim</div>
+            <div class="warning-box" id="warningBox">⚠️ Harap lengkapi semua kolom yang wajib diisi!</div>
+            
+            <form id="reviewForm">
+                <label>👤 Nama / Username Roblox <span class="required">*</span></label>
+                <input type="text" id="nameInput" placeholder="Contoh: RobloxPlayer123">
+                <div class="error-text" id="nameError">❌ Nama tidak boleh kosong!</div>
 
-        <div class="tab-content active" id="ulasan-tab">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="🔍 Cari nama/transaksi..." oninput="filterReviews()">
-                <select id="filterStar" onchange="filterReviews()">
-                    <option value="">Semua Bintang</option>
-                    <option value="5">⭐⭐⭐⭐⭐ 5 Bintang</option>
-                    <option value="4">⭐⭐⭐⭐ 4 Bintang</option>
-                    <option value="3">⭐⭐⭐ 3 Bintang</option>
-                    <option value="2">⭐⭐ 2 Bintang</option>
-                    <option value="1">⭐ 1 Bintang</option>
-                </select>
-                <select id="filterType" onchange="filterReviews()">
-                    <option value="">Semua Jenis Transaksi</option>
+                <label>📦 Jenis Transaksi <span class="required">*</span></label>
+                <select id="typeInput">
+                    <option value="">— Pilih Jenis Transaksi —</option>
                     <option value="Robux Via Send">Robux Via Send</option>
                     <option value="Robux Via Group">Robux Via Group</option>
                     <option value="Top Up Lainnya">Top Up Lainnya</option>
-                    <option value="Jasa La
+                    <option value="Jasa Lainnya">Jasa Lainnya</option>
+                </select>
+                <div class="error-text" id="typeError">❌ Silakan pilih jenis transaksi!</div>
+
+                <label>💰 Nominal Transaksi <span class="required">*</span></label>
+                <input type="text" id="amountInput" placeholder="Contoh: Rp 50.000 / 1.000 Robux">
+                <div class="error-text" id="amountError">❌ Nominal transaksi tidak boleh kosong!</div>
+
+                <label>📸 Foto Bukti Transaksi <span class="optional">(Boleh Dikosongkan)</span></label>
+                <div class="upload-area" onclick="document.getElementById('photoInput').click()">
+                    <div class="upload-icon">📷</div>
+                    <p style="color:#888; font-size:0.9rem;">Klik untuk memilih foto bukti pembayaran (opsional)</p>
+                    <input type="file" id="photoInput" accept="image/*">
+                </div>
+                
+                <div id="previewWrapper" class="photo-preview-container hidden">
+                    <img id="photoPreview" class="photo-preview" alt="Pratinjau">
+                    <button type="button" class="remove-photo" onclick="removePhoto()">&times;</button>
+                </div>
+
+                <label>💬 Ulasan <span class="required">*</span></label>
+                <textarea id="reviewInput" rows="3" placeholder="Ceritakan pengalaman kamu berbelanja di sini..."></textarea>
+                <div class="error-text" id="reviewError">❌ Ulasan tidak boleh kosong!</div>
+
+                <label>⭐ Beri Penilaian <span class="required">*</span></label>
+                <select id="starInput">
+                    <option value="">— Pilih Bintang —</option>
+                    <option value="5">★★★★★ — Sangat Memuaskan</option>
+                    <option value="4">★★★★ — Bagus</option>
+                    <option value="3">★★★ — Cukup</option>
+                    <option value="2">★★ — Kurang</option>
+                    <option value="1">★ — Buruk</option>
+                </select>
+                <div class="error-text" id="starError">❌ Silakan pilih penilaian bintang!</div>
+
+                <button type="submit">📤 Kirim Ulasan</button>
+            </form>
+        </div>
+
+        <div class="reviews-section">
+            <h2>📋 Semua Ulasan</h2>
+            <div id="reviewsList">
+                <div class="empty-state">
+                    Belum ada ulasan. Jadilah yang pertama mengirim ulasan!
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>📞 Kontak Admin: <a href="https://wa.me/6289503312050" target="_blank" style="color:#25D366; text-decoration:none;">0895-0331-2050</a> | Discord: <a href="https://discord.gg/ciomuda" target="_blank" style="color:#7289da; text-decoration:none;">ciomuda</a></p>
+            <p>🏪 WANG STORE — Terpercaya &amp; Tercepat</p>
+            <p class="admin-toggle" onclick="openAdminModal()">⚙️</p>
+        </footer>
+    </div>
+
+    <script>
+        const ADMIN_PASSWORD = 'admin123';
+        const reviewsList = document.getElementById('reviewsList');
+        const reviewForm = document.getElementById('reviewForm');
+        const successMsg = document.getElementById('successMsg');
+        const warningBox = document.getElementById('warningBox');
+        const photoInput = document.getElementById('photoInput');
+        const photoPreview = document.getElementById('photoPreview');
+        const previewWrapper = document.getElementById('previewWrapper');
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+
+        let isAdmin = localStorage.getItem('isAdmin') === 'true';
+        let reviews = JSON.parse(localStorage.getItem('wangstore_reviews')) || [];
+        let photoData = null;
+
+        photoInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                photoData = event.target.result;
+                photoPreview.src = photoData;
+                previewWrapper.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        });
+
+        function removePhoto() {
+            photoData = null;
+            photoInput.value = '';
+            previewWrapper.classList.add('hidden');
+        }
+
+        function openImageModal(src) {
+            modalImage.src = src;
+            imageModal.style.display = 'flex';
+        }
+
+        function closeImageModal() {
+            imageModal.style.display = 'none';
+            modalImage.src = '';
+        }
+
+        function openAdminModal() {
+            const pass = prompt('Masukkan kata sandi admin:');
+            if (pass === ADMIN_PASSWORD) {
+                isAdmin = true;
+                localStorage.setItem('isAdmin', 'true');
+                document.getElementById('adminBadge').classList.remove('hidden');
+                renderReviews();
+                alert('✅ Berhasil masuk sebagai Admin');
+            } else if (pass !== null) {
+                alert('❌ Kata sandi salah!');
+            }
+        }
+
+        window.deleteReview = function(id) {
+            if (confirm('⚠️ Yakin ingin menghapus ulasan ini? Tindakan ini tidak bisa dibatalkan!')) {
+                reviews = reviews.filter(r => r.id !== id);
+                localStorage.setItem('wangstore_reviews', JSON.stringify(reviews));
+                renderReviews();
+                alert('✅ Ulasan berhasil dihapus!');
+            }
+        };
+
+        function hideAllErrors() {
+            warningBox.style.display = 'none';
+            document.querySelectorAll('.error-text').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('input, select, textarea').forEach(el => el.classList.remove('error'));
+        }
+
+        function showError(inputId, errorId) {
+            document.getElementById(inputId).classList.add('error');
+            document.getElementById(errorId).style.display = 'block';
+        }
+
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            hideAllErrors();
+            
+            const name = document.getElementById('nameInput').value.trim();
+            const type = document.getElementById('typeInput').value;
+            const amount = document.getElementById('amountInput').value.trim();
+            const text = document.getElementById('reviewInput').value.trim();
+            const stars = document.getElementById('starInput').value;
+
+            let isValid = true;
+
+            if (!name) { showError('nameInput', 'nameError'); isValid = false; }
+            if (!type) { showError('typeInput', 'typeError'); isValid = false; }
+            if (!amount) { showError('amountInput', 'amountError'); isValid = false; }
+             if (!text) { showError('reviewInput', 'reviewError'); isValid = false; }
+             if (!stars) { showError('starInput', 'starError'); isValid = false; }
+             if (!isValid) {
+                 warningBox.style.display = 'block';
+                 return;
+             }
+             const newReview = {
+                 id: Date.now(),
+                 name: name,
+                 type: type,
+                 amount: amount,
+                 text: text,
+                 stars: parseInt(stars),
+                 photo: photoData,
+                 date: new Date().toISOString()
+             };
+             reviews.push(newReview);
+             localStorage.setItem('wangstore_reviews', JSON.stringify(reviews));
+             
+             successMsg.style.display = 'block';
+             reviewForm.reset();
+             removePhoto();
+             renderReviews();
+             
+             setTimeout(() => {
+                 successMsg.style.display = 'none';
+             }, 3000);
+         });
+         function escapeHtml(text) {
+             const div = document.createElement('div');
+             div.textContent = text;
+             return div.innerHTML;
+         }
+         function formatDate(dateStr) {
+             return new Date(dateStr).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+         }
+         function renderReviews() {
+             if (reviews.length === 0) {
+                 reviewsList.innerHTML = `<div class="empty-state">Belum ada ulasan. Jadilah yang pertama mengirim ulasan!</div>`;
+                 document.getElementById('totalCount').textContent = '0';
+                 document.getElementById('avgRating').textContent = '4.9';
+                 document.getElementById('starsDisplay').textContent = '★★★★★';
+                 return;
+             }
+             reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+             const total = reviews.reduce((sum, r) => sum + r.stars, 0);
+             const avg = (total / reviews.length).toFixed(1);
+             document.getElementById('totalCount').textContent = reviews.length;
+             document.getElementById('avgRating').textContent = avg;
+             
+             const fullStars = Math.round(avg);
+             document.getElementById('starsDisplay').textContent = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+             reviewsList.innerHTML = reviews.map(r => `
+                 <div class="review-card">
+                     <div class="review-header">
+                         <div class="review-name">${escapeHtml(r.name)}</div>
+                         <div style="text-align:right;">
+                             <div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div>
+                             ${isAdmin ? `<button class="btn-small btn-danger" onclick="deleteReview(${r.id})">🗑️ Hapus</button>` : ''}
+                         </div>
+                     </div>
+                     <div class="review-meta">
+                         <span class="meta-tag">📦 ${escapeHtml(r.type)}</span>
+                         <span class="meta-tag amount">💰 ${escapeHtml(r.amount)}</span>
+                     </div>
+                     <div class="review-date">${formatDate(r.date)}</div>
+                     <div class="review-text">${escapeHtml(r.text)}</div>
+                     ${r.photo ? `<img src="${r.photo}" class="review-image" onclick="openImageModal('${r.photo}')" alt="Bukti Transaksi">` : ''}
+                 </div>
+             `).join('');
+         }
+         if (isAdmin) document.getElementById('adminBadge').classList.remove('hidden');
+         renderReviews();
+     </script>
+ </body>
+ </html>
