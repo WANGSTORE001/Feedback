@@ -38,6 +38,7 @@ body {
   overflow: hidden;
 }
 
+/* Scanline CRT */
 .scanline {
   position: absolute;
   width: 100%;
@@ -57,6 +58,7 @@ body {
   100% { transform: translateY(120px); }
 }
 
+/* Noise TV */
 .noise {
   position: absolute;
   width: 100%;
@@ -72,6 +74,7 @@ body {
   50% { opacity: 0.15; }
 }
 
+/* ⭐ Bintang JS */
 .star-random {
   position: absolute;
   font-size: 18px;
@@ -87,6 +90,7 @@ body {
   100% { opacity: 0; transform: scale(0.3); }
 }
 
+/* Teks banner */
 .banner-text {
   position: relative;
   z-index: 4;
@@ -117,6 +121,7 @@ body {
   100% { opacity: 1; }
 }
 
+/* ===== KONTEN UTAMA ===== */
 .content {
   padding: 30px;
 }
@@ -149,6 +154,7 @@ th {
   color: #e9d5ff;
 }
 
+/* Sosmed Box */
 .social-box {
   display: flex;
   gap: 12px;
@@ -188,124 +194,43 @@ th {
   text-align: center;
 }
 
-.btn-pilih-row {
-  background: #4a88ff;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-.btn-pilih-row:hover {
-  background: #2c66d8;
-  transform: scale(1.05);
-}
-
 /* ===== FORM PESANAN ===== */
 .order-form {
-  background: #1c1c30;
-  padding: 24px;
-  border-radius: 12px;
-  margin-top: 40px;
+  background:#1c1c30;
+  padding:20px;
+  border-radius:12px;
+  margin-top:30px;
   scroll-margin-top: 20px;
 }
-
 .order-form input, .order-form select {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: none;
-  font-size: 15px;
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+  border:none;
 }
-
-/* Detail Pembayaran Dinamis */
-.payment-detail {
-  background: #2a2a4a;
-  padding: 16px;
-  border-radius: 8px;
-  margin: 15px 0;
-  display: none;
-  animation: fadeIn 0.4s ease;
-  border-left: 3px solid #ffd66b;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.payment-detail.show {
-  display: block;
-}
-
 .btn-kirim {
-  background: linear-gradient(135deg, #25d366, #128c7e);
-  color: white;
-  border: none;
-  padding: 14px 20px;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  font-size: 16px;
-  margin-top: 10px;
-  transition: 0.3s;
+  background:#ff9f1c;
+  color:#111;
+  border:none;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
 }
-
-.btn-kirim:disabled {
-  background: #555;
-  cursor: not-allowed;
-  opacity: 0.6;
-  transform: none;
+.btn-kirim:hover {
+  background:#e88e0f;
 }
-
-.btn-kirim:hover:enabled {
-  transform: scale(1.02);
-  box-shadow: 0 0 15px #25d36650;
+.btn-pilih-row {
+  background:#4a88ff;
+  color:white;
+  border:none;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
 }
-
-.selected-package {
-  background: #2a1b47;
-  padding: 12px;
-  border-radius: 6px;
-  border-left: 3px solid #a855f7;
-  margin-bottom: 15px;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 15px 0;
-  padding: 12px;
-  background: #252542;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.checkbox-label input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin: 0;
-  accent-color: #25d366;
-}
-
-.total-box {
-  background: #1f2937;
-  padding: 12px;
-  border-radius: 6px;
-  margin: 10px 0;
-  text-align: center;
-  font-size: 18px;
-}
-
-.total-box strong {
-  color: #ffd66b;
-  font-size: 20px;
+.btn-pilih-row:hover {
+  background:#2c66d8;
 }
 </style>
 </head>
@@ -316,6 +241,7 @@ th {
   <div class="banner-wrap" id="bannerWrap">
     <div class="scanline"></div>
     <div class="noise"></div>
+
     <div class="banner-text">
       <h1>🔰WANG STORE🔰</h1>
       <p>⚜️ROBLOX PRICE LIST⚜️</p>
@@ -326,24 +252,31 @@ th {
     <h2>📱SOSIAL MEDIA ADMIN</h2>
 
     <div class="social-box">
+      <!-- Instagram -->
       <a href="https://instagram.com/WangStoreOfficial" target="_blank" class="social-item">
         <svg class="social-svg" viewBox="0 0 24 24">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.695-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.226 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
         </svg>
         Instagram
       </a>
+
+      <!-- TikTok -->
       <a href="https://tiktok.com/@wangstore_real.id" target="_blank" class="social-item">
         <svg class="social-svg" viewBox="0 0 24 24">
           <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.84 4.84 0 01-1.04-.2z"/>
         </svg>
         TikTok
       </a>
+
+      <!-- Facebook -->
       <a href="https://www.facebook.com/share/1EYD7uXQWz/" target="_blank" class="social-item">
         <svg class="social-svg" viewBox="0 0 24 24">
           <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
         </svg>
         Facebook
       </a>
+
+      <!-- Discord -->
       <div class="social-item">
         <svg class="social-svg" viewBox="0 0 24 24">
           <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4977.8727-.6832 1.2495-2.6983-.4083-5.3588-.4083-7.9575 0-.1855-.3768-.4722-.8742-.6832-1.2495a.0741.0741 0 00-.0785-.0371A19.7913 19.7913 0 003.677 4.3698a.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0822.0822 0 00.0312.0561 19.7827 19.7827 0 005.0073 2.5286.0784.0784 0 00.0842-.0276c.3909-.5274.7315-1.1329 1.0176-1.7329a.076.076 0 00-.0416-.1057c-.5288-.1947-1.0659-.456-1.5605-.7695a.0693.0693 0 01-.0731-.0136.0752.0752 0 01-.0262-.0568c-.0124-.1987-.0361-.3943-.0666-.5883a.0757.0757 0 01.0214-.0686c.3476-.2458.7493-.5499 1.1363-.8317a.077.077 0 00.0274-.0615c.0062-.0975.0062-.195.0062-.2925a.0766.0766 0 00-.0274-.0615c-.387-.2818-.7887-.5859-1.1363-.8317a.0757.0757 0 01-.0214-.0686c.0305-.194.0542-.3896.0666-.5883a.0752.0752 0 01.0262-.0568.0693.0693 0 01-.0731-.0136c.4946-.3134 1.0317-.5748 1.5605-.7695a.076.076 0 00.0416-.1057c.2861-.6.6266-1.2055 1.0176-1.7329a.0784.0784 0 00.0842-.0276 19.7827 19.7827 0 005.0073-2.5286.0822.0822 0 00-.0312-.0561c-.4182 4.4779.4342 9.012 3.5457 13.6603a.0699.0699 0 00.0321.0277zM8.02 15.3312c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.947 2.3819-2.1457 2.3819zm7.96 0c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.9349 2.3819-2.1457 2.3819z"/>
@@ -362,7 +295,12 @@ th {
       <tr><td>100 Robux</td><td>Rp 14.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 100 Robux',14000)">Pilih</button></td></tr>
       <tr><td>200 Robux</td><td>Rp 28.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 200 Robux',28000)">Pilih</button></td></tr>
       <tr><td>300 Robux</td><td>Rp 42.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 300 Robux',42000)">Pilih</button></td></tr>
+      <tr><td>400 Robux</td><td>Rp 56.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 400 Robux',56000)">Pilih</button></td></tr>
       <tr><td>500 Robux</td><td>Rp 70.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 500 Robux',70000)">Pilih</button></td></tr>
+      <tr><td>600 Robux</td><td>Rp 84.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 600 Robux',84000)">Pilih</button></td></tr>
+      <tr><td>700 Robux</td><td>Rp 98.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 700 Robux',98000)">Pilih</button></td></tr>
+      <tr><td>800 Robux</td><td>Rp 112.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 800 Robux',112000)">Pilih</button></td></tr>
+      <tr><td>900 Robux</td><td>Rp 126.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 900 Robux',126000)">Pilih</button></td></tr>
       <tr><td>1.000 Robux</td><td>Rp 140.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 1000 Robux',140000)">Pilih</button></td></tr>
     </table>
 
@@ -370,7 +308,14 @@ th {
     <table>
       <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
       <tr><td>100 Robux</td><td>Rp 12.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 100 Robux',12000)">Pilih</button></td></tr>
+      <tr><td>200 Robux</td><td>Rp 24.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 200 Robux',24000)">Pilih</button></td></tr>
+      <tr><td>300 Robux</td><td>Rp 36.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 300 Robux',36000)">Pilih</button></td></tr>
+      <tr><td>400 Robux</td><td>Rp 48.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 400 Robux',48000)">Pilih</button></td></tr>
       <tr><td>500 Robux</td><td>Rp 60.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 500 Robux',60000)">Pilih</button></td></tr>
+      <tr><td>600 Robux</td><td>Rp 72.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 600 Robux',72000)">Pilih</button></td></tr>
+      <tr><td>700 Robux</td><td>Rp 84.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 700 Robux',84000)">Pilih</button></td></tr>
+      <tr><td>800 Robux</td><td>Rp 96.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 800 Robux',96000)">Pilih</button></td></tr>
+      <tr><td>900 Robux</td><td>Rp 108.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 900 Robux',108000)">Pilih</button></td></tr>
       <tr><td>1.000 Robux</td><td>Rp 120.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 1000 Robux',120000)">Pilih</button></td></tr>
     </table>
 
@@ -378,86 +323,66 @@ th {
     <table>
       <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
       <tr><td>1.000 Robux</td><td>Rp 75.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 1000 Robux',75000)">Pilih</button></td></tr>
+      <tr><td>2.000 Robux</td><td>Rp 150.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 2000 Robux',150000)">Pilih</button></td></tr>
+      <tr><td>3.000 Robux</td><td>Rp 225.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 3000 Robux',225000)">Pilih</button></td></tr>
+      <tr><td>4.000 Robux</td><td>Rp 300.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 4000 Robux',300000)">Pilih</button></td></tr>
       <tr><td>5.000 Robux</td><td>Rp 375.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 5000 Robux',375000)">Pilih</button></td></tr>
       <tr><td>10.000 Robux</td><td>Rp 750.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 10000 Robux',750000)">Pilih</button></td></tr>
     </table>
 
-    <!-- ===== FORM PESANAN (Tujuan Scroll) ===== -->
-    <div class="order-form" id="formPemesanan">
-      <h3>📝 Form Pemesanan</h3>
-      
-      <div class="selected-package" id="paketTerpilihBox" style="display:none;">
-        <strong>✅ Paket Terpilih:</strong><br>
-        <span id="paketTerpilihText">Belum ada paket yang dipilih</span><br>
-        <strong>💰 Harga Satuan:</strong> Rp <span id="hargaTerpilih">0</span>
-      </div>
+    <h3>📦 ROBUX Login Akun Kamu</h3>
+    <table>
+      <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
+      <tr><td>100 Robux</td><td>Rp 15.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 100 Robux',15000)">Pilih</button></td></tr>
+      <tr><td>200 Robux</td><td>Rp 30.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 200 Robux',30000)">Pilih</button></td></tr>
+      <tr><td>300 Robux</td><td>Rp 45.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 300 Robux',45000)">Pilih</button></td></tr>
+      <tr><td>400 Robux</td><td>Rp 60.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 400 Robux',60000)">Pilih</button></td></tr>
+      <tr><td>500 Robux</td><td>Rp 75.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 500 Robux',75000)">Pilih</button></td></tr>
+      <tr><td>600 Robux</td><td>Rp 90.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 600 Robux',90000)">Pilih</button></td></tr>
+      <tr><td>700 Robux</td><td>Rp 100.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 700 Robux',100000)">Pilih</button></td></tr>
+      <tr><td>800 Robux</td><td>Rp 120.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 800 Robux',120000)">Pilih</button></td></tr>
+      <tr><td>900 Robux</td><td>Rp 135.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 900 Robux',135000)">Pilih</button></td></tr>
+      <tr><td>1.000 Robux</td><td>Rp 150.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 1000 Robux',150000)">Pilih</button
+   </table>
 
+    <h3>💸 Fee Midman</h3>
+    <table>
+      <tr><th>Rentang</th><th>Fee</th></tr>
+      <tr><td>1K – 50K</td><td>Rp 2.000</td></tr>
+      <tr><td>50K – 100K</td><td>Rp 3.000</td></tr>
+      <tr><td>100K – 250K</td><td>Rp 4.000</td></tr>
+      <tr><td>250K – 500K</td><td>Rp 5.000</td></tr>
+      <tr><td>500K – 1JT</td><td>Rp 10.000</td></tr>
+      <tr><td>1JT – 10JT</td><td>Rp 25.000</td></tr>
+    </table>
+
+    <h3>💎 Metode Pembayaran</h3>
+    <table>
+      <tr><th>Metode Pembayaran</th><th>Keterangan</th></tr>
+      <tr><td>DANA</td><td>Transfer ke nomor resmi WANG STORE</td></tr>
+      <tr><td>QRIS</td><td>Scan QR resmi yang dikirim admin</td></tr>
+      <tr><td>PayPal</td><td>Transfer ke akun PayPal resmi</td></tr>
+      <tr><td>Crypto</td><td>Transfer ke alamat crypto yang dikonfirmasi admin</td></tr>
+    </table>
+
+    <div class="note">
+      📌 Hubungi kami lewat sosial media resmi di atas untuk pemesanan
+    </div>
+
+    <!-- ===== FORM PESANAN ===== -->
+    <div class="order-form" id="orderForm">
+      <h3>📝 Form Pemesanan</h3>
       <input type="text" id="namaPembeli" placeholder="Username Roblox / Nama Pembeli">
-      
-      <label style="margin-top:10px;display:block;">💳 Pilih Metode Pembayaran:</label>
-      <select id="metodeBayar" onchange="tampilkanInstruksiBayar()">
-        <option value="">-- Pilih Metode Pembayaran --</option>
+      <input type="text" id="paketTerpilih" placeholder="Paket yang dipilih (otomatis terisi)" readonly>
+      <input type="number" id="jumlah" placeholder="Jumlah" min="1" value="1">
+      <select id="metodeBayar">
+        <option value="">Pilih Metode Pembayaran</option>
         <option value="dana">DANA</option>
         <option value="qris">QRIS</option>
         <option value="paypal">PayPal</option>
-        <option value="crypto">Crypto (USDT/BNB)</option>
+        <option value="crypto">Crypto</option>
       </select>
-
-      <!-- Instruksi Pembayaran Dinamis -->
-      <div class="payment-detail" id="instruksiDana">
-        <h4>💵 Pembayaran via DANA</h4>
-        <p><strong>📱 Nomor DANA:</strong> <span style="font-size:18px; color:#ffd66b; font-weight:bold;">089503312050</span></p>
-        <p><strong>👤 Atas Nama:</strong> WANG STORE</p>
-        <p><strong>💰 Total Bayar:</strong> Rp <span id="totalBayarDana">0</span></p>
-        <hr style="border:none; border-top:1px solid #444; margin:10px 0;">
-        <p>✅ <strong>Langkah-langkah:</strong></p>
-        <p>1. Buka aplikasi DANA</p>
-        <p>2. Pilih Kirim Uang → Masukkan nomor <strong>089503312050</strong></p>
-        <p>3. Masukkan nominal sesuai total di atas</p>
-        <p>4. Klik Bayar & tunggu bukti pembayaran muncul</p>
-        <p>5. <strong>Simpan/Tangkap layar bukti pembayarannya</strong></p>
-        <p style="color:#ffd66b; margin-top:8px;">⚠️ Pastikan Anda sudah menyelesaikan pembayaran sebelum mencentang kotak di bawah ini</p>
-      </div>
-
-      <div class="payment-detail" id="instruksiQris">
-        <h4>📱 Pembayaran via QRIS</h4>
-        <p>✅ Klik tombol konfirmasi di bawah → kirim pesan ke WA → admin akan mengirimkan kode QR</p>
-        <p>✅ Scan QR tersebut dari aplikasi bank/e-wallet kamu</p>
-        <p>✅ Masukkan nominal sesuai total pembayaran</p>
-        <p>✅ Simpan bukti pembayaran setelah selesai</p>
-        <p style="color:#ffd66b; margin-top:8px;">⚠️ Pastikan Anda sudah menyelesaikan pembayaran sebelum mencentang kotak di bawah ini</p>
-      </div>
-
-      <div class="payment-detail" id="instruksiPaypal">
-        <h4>🌍 Pembayaran via PayPal</h4>
-        <p><strong>Email PayPal:</strong> Akan dikirim admin setelah konfirmasi awal</p>
-        <p>✅ Masukkan catatan: Username Roblox kamu</p>
-        <p>✅ Simpan bukti transaksi</p>
-        <p style="color:#ffd66b; margin-top:8px;">⚠️ Pastikan Anda sudah menyelesaikan pembayaran sebelum mencentang kotak dibawah ini
-        </p>
-      </div>
-
-      <div class="payment-detail" id="instruksiCrypto">
-        <h4>🪙 Pembayaran via Crypto</h4>
-        <p><strong>Mata uang yang diterima:</strong> USDT, BNB</p>
-        <p>✅ Alamat akan dikirimkan oleh admin melalui WhatsApp setelah konfirmasi awal</p>
-        <p>✅ Pastikan jaringan yang digunakan BENAR</p>
-        <p>✅ Simpan hash/ID transaksi setelah dikirim</p>
-        <p style="color:#ffd66b; margin-top:8px;">⚠️ Pastikan Anda sudah menyelesaikan pembayaran sebelum mencentang kotak di bawah ini</p>
-      </div>
-
-      <div class="total-box" id="totalBox" style="display:none;">
-        Total Bayar: <strong>Rp <span id="totalBayar">0</span></strong>
-      </div>
-
-      <label class="checkbox-label">
-        <input type="checkbox" id="sudahBayar" onchange="cekSudahBayar()">
-        <span>✅ Saya sudah melakukan pembayaran dan menyimpan bukti pembayarannya</span>
-      </label>
-      
-      <button class="btn-kirim" id="btnKonfirmasi" disabled onclick="kirimKonfirmasi()">
-        ✅ Sudah Bayar — Konfirmasi ke WhatsApp
-      </button>
+      <button class="btn-kirim" onclick="kirimPesanan()">Kirim Pesanan ke WhatsApp</button>
     </div>
   </div>
 </div>
@@ -465,131 +390,52 @@ th {
 <script>
 let namaPaket = "";
 let hargaSatuan = 0;
-let jumlahPesanan = 1;
 
-// 1. Fungsi pilih paket + auto scroll ke bawah
+// Fungsi pilih paket + Auto-scroll ke form
 function pilihPaket(nama, harga){
   namaPaket = nama;
   hargaSatuan = harga;
-  jumlahPesanan = 1;
-  
-  // Tampilkan info paket
-  document.getElementById("paketTerpilihBox").style.display = "block";
-  document.getElementById("paketTerpilihText").textContent = nama;
-  document.getElementById("hargaTerpilih").textContent = harga.toLocaleString('id-ID');
-  
-  // Reset total
-  updateTotal();
-  
-  // Reset checkbox & tombol
-  document.getElementById("sudahBayar").checked = false;
-  document.getElementById("btnKonfirmasi").disabled = true;
-  
-  // Sembunyikan instruksi pembayaran
-  sembunyikanSemuaInstruksi();
+  document.getElementById("paketTerpilih").value = nama + " | Rp " + harga.toLocaleString('id-ID');
   
   // Auto scroll ke form pemesanan
-  document.getElementById("formPemesanan").scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const form = document.getElementById('orderForm');
+  form.scrollIntoView({ behavior: 'smooth', block: 'start' });
   
-  alert("✅ Paket dipilih: " + nama + "\n⬇️ Silakan lanjutkan ke form di bawah");
+  alert("✅ Paket telah dipilih: " + nama);
 }
 
-function updateTotal(){
-  const total = hargaSatuan * jumlahPesanan;
-  document.getElementById("totalBayar").textContent = total.toLocaleString('id-ID');
-  document.getElementById("totalBayarDana").textContent = total.toLocaleString('id-ID');
-  document.getElementById("totalBox").style.display = "block";
-}
-
-function sembunyikanSemuaInstruksi(){
-  document.getElementById("instruksiDana").classList.remove("show");
-  document.getElementById("instruksiQris").classList.remove("show");
-  document.getElementById("instruksiPaypal").classList.remove("show");
-  document.getElementById("instruksiCrypto").classList.remove("show");
-}
-
-// 2. Tampilkan instruksi sesuai metode pembayaran yang dipilih
-function tampilkanInstruksiBayar(){
-  const metode = document.getElementById("metodeBayar").value;
-  
-  // Sembunyikan semua instruksi dulu
-  sembunyikanSemuaInstruksi();
-  
-  // Tampilkan yang dipilih
-  if(metode === "dana"){
-    document.getElementById("instruksiDana").classList.add("show");
-  } else if(metode === "qris"){
-    document.getElementById("instruksiQris").classList.add("show");
-  } else if(metode === "paypal"){
-    document.getElementById("instruksiPaypal").classList.add("show");
-  } else if(metode === "crypto"){
-    document.getElementById("instruksiCrypto").classList.add("show");
-  }
-  
-  // Reset checkbox & tombol
-  document.getElementById("sudahBayar").checked = false;
-  document.getElementById("btnKonfirmasi").disabled = true;
-}
-
-// 3. Cek apakah sudah mencentang "sudah bayar"
-function cekSudahBayar(){
-  const sudahBayar = document.getElementById("sudahBayar").checked;
-  const metode = document.getElementById("metodeBayar").value;
-  
-  if(sudahBayar && metode){
-    document.getElementById("btnKonfirmasi").disabled = false;
-  } else {
-    document.getElementById("btnKonfirmasi").disabled = true;
-  }
-}
-
-// 4. Kirim konfirmasi ke WhatsApp
-function kirimKonfirmasi(){
+// Fungsi kirim ke WhatsApp
+function kirimPesanan(){
   const namaPembeli = document.getElementById("namaPembeli").value.trim();
-  jumlahPesanan = parseInt(document.getElementById("jumlah").value) || 1;
+  const jumlah = parseInt(document.getElementById("jumlah").value);
   const metode = document.getElementById("metodeBayar").value;
-  const sudahBayar = document.getElementById("sudahBayar").checked;
 
   if(!namaPembeli){
     alert("⚠️ Isi Username / Nama Pembeli terlebih dahulu!");
     return;
   }
   if(!namaPaket){
-    alert("⚠️ Silakan pilih paket terlebih dahulu di daftar harga di atas!");
+    alert("⚠️ Pilih paket terlebih dahulu!");
     return;
   }
   if(!metode){
-    alert("⚠️ Pilih metode pembayaran terlebih dahulu!");
-    return;
-  }
-  if(!sudahBayar){
-    alert("⚠️ Centang kotak konfirmasi pembayaran terlebih dahulu!");
+    alert("⚠️ Pilih Metode Pembayaran!");
     return;
   }
 
-  const total = hargaSatuan * jumlahPesanan;
-  const pesan = `Halo WANG STORE, saya sudah melakukan pembayaran%0A%0A` +
+  const total = hargaSatuan * jumlah;
+  const pesan = `Halo WANG STORE, saya ingin memesan%0A` +
                 `👤 Username: ${namaPembeli}%0A` +
                 `📦 Paket: ${namaPaket}%0A` +
-                `🔢 Jumlah: ${jumlahPesanan}%0A` +
+                `🔢 Jumlah: ${jumlah}%0A` +
                 `💰 Total: Rp ${total.toLocaleString('id-ID')}%0A` +
-                `💳 Metode: ${metode}%0A` +
-                `${metode === 'dana' ? '📱 Nomor DANA: 089503312050%0A' : ''}` +
-                `%0A✅ Berikut bukti pembayaran saya 👇`;
+                `💳 Metode: ${metode}`;
 
-  // Buka WhatsApp dengan pesan lengkap
+  // Nomor WA: 6289503312050
   window.open(`https://wa.me/6289503312050?text=${pesan}`, "_blank");
 }
 
-// Update total saat jumlah diubah
-document.getElementById("jumlah").addEventListener("input", function(){
-  if(hargaSatuan > 0){
-    jumlahPesanan = parseInt(this.value) || 1;
-    updateTotal();
-  }
-});
-
-// ⭐ Bintang animasi di banner
+// ⭐ Bintang animasi
 const bannerWrap = document.getElementById('bannerWrap');
 function buatBintang() {
   const star = document.createElement('div');
