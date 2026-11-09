@@ -230,6 +230,7 @@ th {
   margin: 15px 0;
   display: none;
   animation: fadeIn 0.4s ease;
+  border-left: 3px solid #ffd66b;
 }
 
 @keyframes fadeIn {
@@ -255,7 +256,14 @@ th {
   transition: 0.3s;
 }
 
-.btn-kirim:hover {
+.btn-kirim:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.btn-kirim:hover:enabled {
   transform: scale(1.02);
   box-shadow: 0 0 15px #25d36650;
 }
@@ -266,6 +274,38 @@ th {
   border-radius: 6px;
   border-left: 3px solid #a855f7;
   margin-bottom: 15px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 15px 0;
+  padding: 12px;
+  background: #252542;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #25d366;
+}
+
+.total-box {
+  background: #1f2937;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+.total-box strong {
+  color: #ffd66b;
+  font-size: 20px;
 }
 </style>
 </head>
@@ -349,9 +389,9 @@ th {
       <div class="selected-package" id="paketTerpilihBox" style="display:none;">
         <strong>✅ Paket Terpilih:</strong><br>
         <span id="paketTerpilihText">Belum ada paket yang dipilih</span><br>
-        <strong>💰 Harga:</strong> Rp <span id="hargaTerpilih">0</span>
+        <strong>💰 Harga Satuan:</strong> Rp <span id="hargaTerpilih">0</span>
       </div>
-      
+
       <input type="text" id="namaPembeli" placeholder="Username Roblox / Nama Pembeli">
       
       <label style="margin-top:10px;display:block;">💳 Pilih Metode Pembayaran:</label>
@@ -366,36 +406,58 @@ th {
       <!-- Instruksi Pembayaran Dinamis -->
       <div class="payment-detail" id="instruksiDana">
         <h4>💵 Pembayaran via DANA</h4>
-        <p><strong>Nomor DANA:</strong> Akan dikirim admin setelah konfirmasi</p>
-        <p><strong>Atas Nama:</strong> WANG STORE</p>
-        <p>✅ Silakan transfer sesuai total di atas, lalu simpan bukti pembayarannya</p>
+        <p><strong>📱 Nomor DANA:</strong> <span style="font-size:18px; color:#ffd66b; font-weight:bold;">089503312050</span></p>
+        <p><strong>👤 Atas Nama:</strong> WANG STORE</p>
+        <p><strong>💰 Total Bayar:</strong> Rp <span id="totalBayarDana">0</span></p>
+        <hr style="border:none; border-top:1px solid #444; margin:10px 0;">
+        <p>✅ <strong>Langkah-langkah:</strong></p>
+        <p>1. Buka aplikasi DANA</p>
+        <p>2. Pilih Kirim Uang → Masukkan nomor <strong>089503312050</strong></p>
+        <p>3. Masukkan nominal sesuai total di atas</p>
+        <p>4. Klik Bayar & tunggu bukti pembayaran muncul</p>
+        <p>5. <strong>Simpan/Tangkap layar bukti pembayarannya</strong></p>
+        <p style="color:#ffd66b; margin-top:8px;">⚠️ Pastikan Anda sudah menyelesaikan pembayaran sebelum mencentang kotak di bawah ini</p>
       </div>
 
       <div class="payment-detail" id="instruksiQris">
         <h4>📱 Pembayaran via QRIS</h4>
         <p>✅ Klik tombol konfirmasi di bawah → kirim pesan ke WA → admin akan mengirimkan kode QR</p>
         <p>✅ Scan QR tersebut dari aplikasi bank/e-wallet kamu</p>
+        <p>✅ Masukkan nominal sesuai total pembayaran</p>
         <p>✅ Simpan bukti pembayaran setelah selesai</p>
+        <p style="color:#ffd66b; margin-top:8px;">⚠️ Pastikan Anda sudah menyelesaikan pembayaran sebelum mencentang kotak di bawah ini</p>
       </div>
 
       <div class="payment-detail" id="instruksiPaypal">
         <h4>🌍 Pembayaran via PayPal</h4>
-        <p><strong>Email PayPal:</strong> Akan dikirim admin setelah konfirmasi</p>
-        <p>✅ Masukkan catatan: Username Robux kamu</p>
+        <p><strong>Email PayPal:</strong> Akan dikirim admin setelah konfirmasi awal</p>
+        <p>✅ Masukkan catatan: Username Roblox kamu</p>
         <p>✅ Simpan bukti transaksi</p>
+        <p style="color:#ffd66b; margin-top:8px;">⚠️ Pastikan Anda sudah menyelesaikan pembayaran sebelum mencentang kotak dibawah ini
+        </p>
       </div>
 
       <div class="payment-detail" id="instruksiCrypto">
         <h4>🪙 Pembayaran via Crypto</h4>
         <p><strong>Mata uang yang diterima:</strong> USDT, BNB</p>
-        <p>✅ Alamat akan dikirimkan oleh admin melalui WhatsApp</p>
+        <p>✅ Alamat akan dikirimkan oleh admin melalui WhatsApp setelah konfirmasi awal</p>
         <p>✅ Pastikan jaringan yang digunakan BENAR</p>
         <p>✅ Simpan hash/ID transaksi setelah dikirim</p>
+        <p style="color:#ffd66b; margin-top:8px;">⚠️ Pastikan Anda sudah menyelesaikan pembayaran sebelum mencentang kotak di bawah ini</p>
       </div>
 
-      <input type="number" id="jumlah" placeholder="Jumlah pesanan" min="1" value="1" style="margin-top:15px;">
+      <div class="total-box" id="totalBox" style="display:none;">
+        Total Bayar: <strong>Rp <span id="totalBayar">0</span></strong>
+      </div>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="sudahBayar" onchange="cekSudahBayar()">
+        <span>✅ Saya sudah melakukan pembayaran dan menyimpan bukti pembayarannya</span>
+      </label>
       
-      <button class="btn-kirim" onclick="kirimKonfirmasi()">✅ Sudah Bayar — Konfirmasi ke WhatsApp</button>
+      <button class="btn-kirim" id="btnKonfirmasi" disabled onclick="kirimKonfirmasi()">
+        ✅ Sudah Bayar — Konfirmasi ke WhatsApp
+      </button>
     </div>
   </div>
 </div>
@@ -403,16 +465,28 @@ th {
 <script>
 let namaPaket = "";
 let hargaSatuan = 0;
+let jumlahPesanan = 1;
 
 // 1. Fungsi pilih paket + auto scroll ke bawah
 function pilihPaket(nama, harga){
   namaPaket = nama;
   hargaSatuan = harga;
+  jumlahPesanan = 1;
   
   // Tampilkan info paket
   document.getElementById("paketTerpilihBox").style.display = "block";
   document.getElementById("paketTerpilihText").textContent = nama;
   document.getElementById("hargaTerpilih").textContent = harga.toLocaleString('id-ID');
+  
+  // Reset total
+  updateTotal();
+  
+  // Reset checkbox & tombol
+  document.getElementById("sudahBayar").checked = false;
+  document.getElementById("btnKonfirmasi").disabled = true;
+  
+  // Sembunyikan instruksi pembayaran
+  sembunyikanSemuaInstruksi();
   
   // Auto scroll ke form pemesanan
   document.getElementById("formPemesanan").scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -420,16 +494,26 @@ function pilihPaket(nama, harga){
   alert("✅ Paket dipilih: " + nama + "\n⬇️ Silakan lanjutkan ke form di bawah");
 }
 
-// 
+function updateTotal(){
+  const total = hargaSatuan * jumlahPesanan;
+  document.getElementById("totalBayar").textContent = total.toLocaleString('id-ID');
+  document.getElementById("totalBayarDana").textContent = total.toLocaleString('id-ID');
+  document.getElementById("totalBox").style.display = "block";
+}
+
+function sembunyikanSemuaInstruksi(){
+  document.getElementById("instruksiDana").classList.remove("show");
+  document.getElementById("instruksiQris").classList.remove("show");
+  document.getElementById("instruksiPaypal").classList.remove("show");
+  document.getElementById("instruksiCrypto").classList.remove("show");
+}
+
 // 2. Tampilkan instruksi sesuai metode pembayaran yang dipilih
 function tampilkanInstruksiBayar(){
   const metode = document.getElementById("metodeBayar").value;
   
   // Sembunyikan semua instruksi dulu
-  document.getElementById("instruksiDana").classList.remove("show");
-  document.getElementById("instruksiQris").classList.remove("show");
-  document.getElementById("instruksiPaypal").classList.remove("show");
-  document.getElementById("instruksiCrypto").classList.remove("show");
+  sembunyikanSemuaInstruksi();
   
   // Tampilkan yang dipilih
   if(metode === "dana"){
@@ -441,13 +525,30 @@ function tampilkanInstruksiBayar(){
   } else if(metode === "crypto"){
     document.getElementById("instruksiCrypto").classList.add("show");
   }
+  
+  // Reset checkbox & tombol
+  document.getElementById("sudahBayar").checked = false;
+  document.getElementById("btnKonfirmasi").disabled = true;
 }
 
-// 3. Kirim konfirmasi ke WhatsApp
+// 3. Cek apakah sudah mencentang "sudah bayar"
+function cekSudahBayar(){
+  const sudahBayar = document.getElementById("sudahBayar").checked;
+  const metode = document.getElementById("metodeBayar").value;
+  
+  if(sudahBayar && metode){
+    document.getElementById("btnKonfirmasi").disabled = false;
+  } else {
+    document.getElementById("btnKonfirmasi").disabled = true;
+  }
+}
+
+// 4. Kirim konfirmasi ke WhatsApp
 function kirimKonfirmasi(){
   const namaPembeli = document.getElementById("namaPembeli").value.trim();
-  const jumlah = parseInt(document.getElementById("jumlah").value);
+  jumlahPesanan = parseInt(document.getElementById("jumlah").value) || 1;
   const metode = document.getElementById("metodeBayar").value;
+  const sudahBayar = document.getElementById("sudahBayar").checked;
 
   if(!namaPembeli){
     alert("⚠️ Isi Username / Nama Pembeli terlebih dahulu!");
@@ -461,19 +562,32 @@ function kirimKonfirmasi(){
     alert("⚠️ Pilih metode pembayaran terlebih dahulu!");
     return;
   }
+  if(!sudahBayar){
+    alert("⚠️ Centang kotak konfirmasi pembayaran terlebih dahulu!");
+    return;
+  }
 
-  const total = hargaSatuan * jumlah;
+  const total = hargaSatuan * jumlahPesanan;
   const pesan = `Halo WANG STORE, saya sudah melakukan pembayaran%0A%0A` +
                 `👤 Username: ${namaPembeli}%0A` +
                 `📦 Paket: ${namaPaket}%0A` +
-                `🔢 Jumlah: ${jumlah}%0A` +
+                `🔢 Jumlah: ${jumlahPesanan}%0A` +
                 `💰 Total: Rp ${total.toLocaleString('id-ID')}%0A` +
-                `💳 Metode: ${metode}%0A%0A` +
-                `✅ Sudah saya bayar, berikut buktinya 👇`;
+                `💳 Metode: ${metode}%0A` +
+                `${metode === 'dana' ? '📱 Nomor DANA: 089503312050%0A' : ''}` +
+                `%0A✅ Berikut bukti pembayaran saya 👇`;
 
   // Buka WhatsApp dengan pesan lengkap
   window.open(`https://wa.me/6289503312050?text=${pesan}`, "_blank");
 }
+
+// Update total saat jumlah diubah
+document.getElementById("jumlah").addEventListener("input", function(){
+  if(hargaSatuan > 0){
+    jumlahPesanan = parseInt(this.value) || 1;
+    updateTotal();
+  }
+});
 
 // ⭐ Bintang animasi di banner
 const bannerWrap = document.getElementById('bannerWrap');
