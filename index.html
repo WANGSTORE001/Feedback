@@ -3,517 +3,444 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WANG STORE | Pricelist Robux</title>
+<title>WANG STORE - Top Up Game</title>
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: #0b0b18;
-  color: #fff;
-  padding: 20px;
+  background-color: #121217;
+  color: #ffffff;
+  min-height: 100vh;
+  animation: fadeInBody 0.8s ease;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .container {
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
-  background: #141428;
-  border-radius: 16px;
-  box-shadow: 0 0 20px #7b2cbf50;
-  overflow: hidden;
+  padding: 16px;
 }
 
-/* ===== PREMIUM BANNER ===== */
-.premium-banner {
-  position: relative;
-  height: 360px;
+/* ========== HEADER TOKO ========== */
+.header-toko {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.logo-toko {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #22222b;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(255,214,107,0.18), transparent 28%),
-    radial-gradient(circle at 80% 20%, rgba(168,85,247,0.18), transparent 28%),
-    radial-gradient(circle at 50% 90%, rgba(74,136,255,0.14), transparent 32%),
-    linear-gradient(135deg, #001133, #2e1050, #001133);
+  font-weight: bold;
 }
 
-.premium-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,0.06),
-    rgba(255,255,255,0.06) 2px,
-    transparent 4px
-  );
-  animation: scanMove 4s linear infinite;
-  z-index: 1;
+.header-toko .nama h2 {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 22px;
 }
 
-@keyframes scanMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(120px); }
+.header-toko .nama p {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #94a3b8;
 }
 
-.premium-banner::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(
-    45deg,
-    rgba(255,214,107,0.12),
-    rgba(168,85,247,0.12),
-    rgba(74,136,255,0.12),
-    rgba(255,214,107,0.12)
-  );
-  background-size: 300% 300%;
-  animation: gradientShift 8s ease-in-out infinite;
-  z-index: 0;
-  filter: blur(12px);
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.banner-glow-orb {
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,214,107,0.18), transparent 35%);
-  top: -60px;
-  right: -40px;
-  filter: blur(18px);
-  animation: floatOrb 6s ease-in-out infinite;
-  z-index: 0;
-}
-
-@keyframes floatOrb {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-12px) scale(1.05); }
-}
-
-.banner-content {
+/* ========== BANNER UTAMA DENGAN FOTO SENDIRI ========== */
+.banner {
   position: relative;
-  z-index: 3;
-  text-align: center;
+  border-radius: 22px;
+  overflow: hidden;
+  padding: 44px 22px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  animation: fadeInBanner 1s ease;
 }
 
-.banner-king-icon {
-  font-size: 38px;
-  margin-bottom: 10px;
-  animation: bounceSoft 2.5s ease-in-out infinite;
+@keyframes fadeInBanner {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes bounceSoft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.banner-title {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 900;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, #00ffff, #a855f7, #ffd66b, #a855f7, #00ffff);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: textShine 5s linear infinite;
-  margin-bottom: 10px;
-}
-
-@keyframes textShine {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-.banner-subtitle {
-  font-size: 1.2rem;
-  color: #e0e7ff;
-  animation: blinkSlow 2s alternate infinite;
-}
-
-@keyframes blinkSlow {
-  0% { opacity: 0.7; }
-  100% { opacity: 1; }
-}
-
-.banner-stars {
+.banner-gambar {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
 }
 
-.star-badge {
+.banner-lapisan-gelap {
   position: absolute;
-  color: rgba(255,214,107,0.85);
-  text-shadow: 0 0 8px rgba(255,214,107,0.45);
-  animation: twinkle 2s ease-in-out infinite;
+  inset: 0;
+  background: rgba(0,0,0,0.62);
+  z-index: -1;
 }
 
-.star-badge:nth-child(1) { left: 8%; top: 15%; animation-delay: 0s; }
-.star-badge:nth-child(2) { left: 22%; top: 25%; animation-delay: 0.3s; }
-.star-badge:nth-child(3) { right: 24%; top: 18%; animation-delay: 0.6s; }
-.star-badge:nth-child(4) { right: 10%; top: 28%; animation-delay: 0.9s; }
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.25; transform: scale(0.85); }
-  50% { opacity: 1; transform: scale(1.15); }
-}
-
-/* ===== KONTEN UTAMA ===== */
-.content {
-  padding: 30px;
-}
-
-h2 {
-  text-align: center;
-  color: #a855f7;
+.banner .label-top {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
   margin-bottom: 18px;
 }
 
-h3 {
-  margin: 24px 0 12px;
-  color: #d8b4fe;
+.banner h1 {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 40px;
+  line-height: 1.1;
+  margin-bottom: 12px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 12px 0;
+.banner p {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  color: #cbd5e1;
+  margin-bottom: 26px;
 }
 
-th, td {
-  padding: 10px;
-  border: 1px solid #333355;
-  text-align: center;
-}
-
-th {
-  background: #252542;
-  color: #e9d5ff;
-}
-
-/* Sosmed Box */
-.social-box {
+.banner-buttons {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0;
 }
 
-.social-item {
+.btn-utama {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 14px 24px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-utama:active {
+  transform: scale(0.96);
+}
+
+.btn-pilih {
+  background: #ffffff;
+  color: #121217;
+}
+
+.btn-wa-konsul {
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+}
+
+/* ========== KOTAK SALURAN WHATSAPP ========== */
+.wa-channel {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: #1f1f3a;
-  padding: 14px 18px;
-  border-radius: 10px;
+  justify-content: space-between;
+  gap: 12px;
+  transition: all 0.3s ease;
+  animation: fadeInWa 1.1s ease;
+}
+
+@keyframes fadeInWa {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wa-channel:hover {
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.wa-channel .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.wa-channel .teks h3 {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+}
+
+.wa-channel .teks p {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+/* ========== KEUNGGULAN 2 BARIS 2 KOLOM ========== */
+.keunggulan {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+  animation: fadeInKeunggulan 1.2s ease;
+}
+
+@keyframes fadeInKeunggulan {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.keunggulan-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 20px 14px;
+  transition: all 0.3s ease;
+}
+
+.keunggulan-card:hover {
+  transform: translateY(-6px);
+}
+
+.keunggulan-card .icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.keunggulan-card h3 {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.keunggulan-card p {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+/* ========== KATALOG PRODUK ========== */
+.katalog h2 {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.produk-card {
+  font-family: Arial, sans-serif;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.produk-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(96, 197, 255, 0.35);
+}
+
+.produk-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.produk-card .keterangan {
+  font-size: 14px;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+
+.produk-card .stok {
+  font-size: 14px;
+  color: #86efac;
+  margin-bottom: 12px;
+}
+
+.produk-card .harga {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fde68a;
+  margin-bottom: 14px;
+}
+
+.tombol-pesan {
+  font-family: 'Segoe UI', sans-serif;
+  display: inline-block;
+  background: linear-gradient(135deg, #22c55e, #00d970);
+  color: #ffffff;
   text-decoration: none;
-  color: white;
-  transition: 0.3s;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
-.social-item:hover {
-  background: #7b2cbf;
+.tombol-pesan:hover {
+  transform: translateY(-3px);
 }
 
-.social-svg {
-  width: 22px;
-  height: 22px;
-  fill: #fff;
+.tombol-pesan:active {
+  transform: scale(0.96);
 }
 
-.note {
-  background: #221a33;
-  padding: 16px;
-  border-radius: 10px;
-  margin: 24px 0;
-  color: #ffd66b;
+footer {
+  margin-top: 40px;
   text-align: center;
-}
-
-/* ===== FORM PESANAN ===== */
-.order-form {
-  background:#1c1c30;
-  padding:20px;
-  border-radius:12px;
-  margin-top:30px;
-}
-.order-form input, .order-form select {
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border-radius:8px;
-  border:none;
-}
-.btn-kirim {
-  background:#ff9f1c;
-  color:#111;
-  border:none;
-  padding:12px 20px;
-  border-radius:10px;
-  font-weight:bold;
-  cursor:pointer;
-}
-.btn-kirim:hover {
-  background:#e88e0f;
-}
-.btn-pilih-row {
-  background:#4a88ff;
-  color:white;
-  border:none;
-  padding:6px 10px;
-  border-radius:6px;
-  cursor:pointer;
-}
-.btn-pilih-row:hover {
-  background:#2c66d8;
+  font-family: 'Segoe UI', sans-serif;
+  color: #94a3b8;
+  font-size: 14px;
+  padding: 16px;
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- PREMIUM BANNER -->
-  <div class="premium-banner" id="bannerWrap">
-    <div class="banner-glow-orb"></div>
-
-    <div class="banner-stars">
-      <span class="star-badge">✦</span>
-      <span class="star-badge">✧</span>
-      <span class="star-badge">✦</span>
-      <span class="star-badge">✧</span>
-    </div>
-
-    <div class="banner-content">
-      <div class="banner-king-icon">👑</div>
-      <h1 class="banner-title">🔰WANG STORE🔰</h1>
-      <p class="banner-subtitle">⚜️ROBLOX PRICE LIST⚜️</p>
+  <!-- HEADER NAMA TOKO -->
+  <div class="header-toko">
+    <div class="logo-toko">WS</div>
+    <div class="nama">
+      <h2>WANG STORE</h2>
+      <p>Layanan top up game cepat dan terpercaya</p>
     </div>
   </div>
 
-  <div class="content">
-    <h2>📱SOSIAL MEDIA ADMIN</h2>
+  <!-- BANNER UTAMA DENGAN FOTO SENDIRI -->
+  <div class="banner">
+    <img class="banner-gambar" src="https://discord.com/channels/1505038593733689354/1506704452478832755/1571461924707893288" alt="Banner WANG STORE">
+    <div class="banner-lapisan-gelap"></div>
+    <div class="label-top">GAME TOP UP</div>
+    <h1>Top Up Game<br>Cepat & Harga Terjangkau</h1>
+    <p>Pilih produk, tekan tombol pesan, pesan WhatsApp otomatis terisi, tidak perlu mengetik!</p>
+    <div class="banner-buttons">
+      <a href="#katalog" class="btn-utama btn-pilih">Pilih Sekarang</a>
+      <a href="https://wa.me/6289503312050" class="btn-utama btn-wa-konsul" target="_blank">Konsultasi WhatsApp</a>
+    </div>
+  </div>
 
-    <div class="social-box">
-      <!-- Instagram -->
-      <a href="https://instagram.com/WangStoreOfficial" target="_blank" class="social-item">
-        <svg class="social-svg" viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.695-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.226 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-        Instagram
-      </a>
-
-      <!-- TikTok -->
-      <a href="https://tiktok.com/@wangstore_real.id" target="_blank" class="social-item">
-        <svg class="social-svg" viewBox="0 0 24 24">
-          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.84 4.84 0 01-1.04-.2z"/>
-        </svg>
-        TikTok
-      </a>
-
-      <!-- Facebook -->
-      <a href="https://www.facebook.com/share/1EYD7uXQWz/" target="_blank" class="social-item">
-        <svg class="social-svg" viewBox="0 0 24 24">
-          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-        </svg>
-        Facebook
-      </a>
-
-      <!-- Discord -->
-      <div class="social-item">
-        <svg class="social-svg" viewBox="0 0 24 24">
-          <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4977.8727-.6832 1.2495-2.6983-.4083-5.3588-.4083-7.9575 0-.1855-.3768-.4722-.8742-.6832-1.2495a.0741.0741 0 00-.0785-.0371A19.7913 19.7913 0 003.677 4.3698a.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0822.0822 0 00.0312.0561 19.7827 19.7827 0 005.0073 2.5286.0784.0784 0 00.0842-.0276c.3909-.5274.7315-1.1329 1.0176-1.7329a.076.076 0 00-.0416-.1057c-.5288-.1947-1.0659-.456-1.5605-.7695a.0693.0693 0 01-.0731-.0136.0752.0752 0 01-.0262-.0568c-.0124-.1987-.0361-.3943-.0666-.5883a.0757.0757 0 01.0214-.0686c.3476-.2458.7493-.5499 1.1363-.8317a.077.077 0 00.0274-.0615c.0062-.0975.0062-.195.0062-.2925a.0766.0766 0 00-.0274-.0615c-.387-.2818-.7887-.5859-1.1363-.8317a.0757.0757 0 01-.0214-.0686c.0305-.194.0542-.3896.0666-.5883a.0752.0752 0 01.0262-.0568.0693.0693 0 01-.0731-.0136c.4946-.3134 1.0317-.5748 1.5605-.7695a.076.076 0 00.0416-.1057c.2861-.6.6266-1.2055 1.0176-1.7329a.0784.0784 0 00.0842-.0276 19.7827 19.7827 0 005.0073-2.5286.0822.0822 0 00-.0312-.0561c-.4182 4.4779.4342 9.012 3.5457 13.6603a.0699.0699 0 00.0321.0277zM8.02 15.3312c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.947 2.3819-2.1457 2.3819zm7.96 0c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.9349 2.3819-2.1457 2.3819z"/>
-        </svg>
-        ciomuda
+  <!-- KOTAK SALURAN WHATSAPP -->
+  <a href="TAUTAN_CHANNEL_WA_KAMU" style="text-decoration:none; color:inherit;">
+    <div class="wa-channel">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="icon">WA</div>
+        <div class="teks">
+          <h3>Saluran WhatsApp · Bukti Kepercayaan</h3>
+          <p>Klik masuk untuk melihat bukti transaksi</p>
+        </div>
       </div>
+      <span>↗</span>
+    </div>
+  </a>
+
+  <!-- KEUNGGULAN 2 BARIS 2 KOLOM -->
+  <section class="keunggulan">
+    <div class="keunggulan-card">
+      <div class="icon">⚡</div>
+      <h3>Proses Cepat</h3>
+      <p>Pesanan segera diproses</p>
+    </div>
+    <div class="keunggulan-card">
+      <div class="icon">🛡️</div>
+      <h3>Aman Terpercaya</h3>
+      <p>Saluran terpercaya</p>
+    </div>
+    <div class="keunggulan-card">
+      <div class="icon">⏰</div>
+      <h3>Layanan Aktif</h3>
+      <p>Siap merespon pesanan</p>
+    </div>
+    <div class="keunggulan-card">
+      <div class="icon">💬</div>
+      <h3>Satu Klik Pesan</h3>
+      <p>Pesan WhatsApp otomatis terisi</p>
+    </div>
+  </section>
+
+  <!-- KATALOG PRODUK -->
+  <section id="katalog" class="katalog">
+    <h2>Daftar Produk</h2>
+
+    <div class="produk-card">
+      <h3>Roblox 1000 Robux (Login Akun)</h3>
+      <p class="keterangan">Dibutuhkan: Username, Kata Sandi, Kode Cadangan, selesai dalam 10 menit</p>
+      <p class="stok">Stok: 1000</p>
+      <p class="harga">Rp 150.000</p>
+      <a class="tombol-pesan" href="https://wa.me/6289503312050?text=Halo%20WANG%20STORE%2C%20saya%20ingin%20pesan%20Roblox%201000%20Robux" target="_blank">Pesan Sekarang</a>
     </div>
 
-    <div class="note">
-      ⚠️ Hanya gunakan akun resmi di atas! Waspada penipu yang mengatasnamakan WANG STORE
+    <div class="produk-card">
+      <h3>Roblox 1000 Robux (sending username)</h3>
+      <p class="keterangan">Dibutuhkan: Username, roblox plus, selesai dalam 5 menit</p>
+      <p class="stok">Stok: 1000</p>
+      <p class="harga">Rp 140.000</p>
+      <a class="tombol-pesan" href="https://wa.me/6289503312050?text=Halo%20WANG%20STORE%2C%20saya%20ingin%20pesan%20Roblox%20500%20Robux" target="_blank">Pesan Sekarang</a>
     </div>
 
-    <h3>📦 ROBUX VIA Send Username</h3>
-    <table>
-      <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
-      <tr><td>100 Robux</td><td>Rp 14.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 100 Robux',14000)">Pilih</button></td></tr>
-      <tr><td>200 Robux</td><td>Rp 28.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 200 Robux',28000)">Pilih</button></td></tr>
-      <tr><td>300 Robux</td><td>Rp 42.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 300 Robux',42000)">Pilih</button></td></tr>
-      <tr><td>400 Robux</td><td>Rp 56.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 400 Robux',56000)">Pilih</button></td></tr>
-      <tr><td>500 Robux</td><td>Rp 70.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 500 Robux',70000)">Pilih</button></td></tr>
-      <tr><td>600 Robux</td><td>Rp 84.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 600 Robux',84000)">Pilih</button></td></tr>
-      <tr><td>700 Robux</td><td>Rp 98.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 700 Robux',98000)">Pilih</button></td></tr>
-      <tr><td>800 Robux</td><td>Rp 112.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 800 Robux',112000)">Pilih</button></td></tr>
-      <tr><td>900 Robux</td><td>Rp 126.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 900 Robux',126000)">Pilih</button></td></tr>
-      <tr><td>1.000 Robux</td><td>Rp 140.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 1000 Robux',140000)">Pilih</button></td></tr>
-    </table>
-
-    <h3>📦 ROBUX Payout Grup</h3>
-    <table>
-      <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
-      <tr><td>100 Robux</td><td>Rp 12.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 100 Robux',12000)">Pilih</button></td></tr>
-      <tr><td>200 Robux</td><td>Rp 24.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 200 Robux',24000)">Pilih</button></td></tr>
-      <tr><td>300 Robux</td><td>Rp 36.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 300 Robux',36000)">Pilih</button></td></tr>
-      <tr><td>400 Robux</td><td>Rp 48.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 400 Robux',48000)">Pilih</button></td></tr>
-      <tr><td>500 Robux</td><td>Rp 60.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 500 Robux',60000)">Pilih</button></td></tr>
-      <tr><td>600 Robux</td><td>Rp 72.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 600 Robux',72000)">Pilih</button></td></tr>
-      <tr><td>700 Robux</td><td>Rp 84.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 700 Robux',84000)">Pilih</button></td></tr>
-      <tr><td>800 Robux</td><td>Rp 96.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 800 Robux',96000)">Pilih</button></td></tr>
-      <tr><td>900 Robux</td><td>Rp 108.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 900 Robux',108000)">Pilih</button></td></tr>
-      <tr><td>1.000 Robux</td><td>Rp 120.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 1000 Robux',120000)">Pilih</button></td></tr>
-    </table>
-
-    <h3>📦 ROBUX TCC / Gamepass Tercepat</h3>
-    <table>
-      <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
-      <tr><td>1.000 Robux</td><td>Rp 75.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 1000 Robux',75000)">Pilih</button></td></tr>
-      <tr><td>2.000 Robux</td><td>Rp 150.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 2000 Robux',150000)">Pilih</button></td></tr>
-      <tr><td>3.000 Robux</td><td>Rp 225.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 3000 Robux',225000)">Pilih</button></td></tr>
-      <tr><td>4.000 Robux</td><td>Rp 300.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 4000 Robux',300000)">Pilih</button></td></tr>
-      <tr><td>5.000 Robux</td><td>Rp 375.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 5000 Robux',375000)">Pilih</button></td></tr>
-      <tr><td>10.000 Robux</td><td>Rp 750.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 10000 Robux',750000)">Pilih</button></td></tr>
-    </table>
-
-    <h3>📦 ROBUX Login Akun Kamu</h3>
-    <table>
-      <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
-      <tr><td>100 Robux</td><td>Rp 15.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 100 Robux',15000)">Pilih</button></td></tr>
-      <tr><td>200 Robux</td><td>Rp 30.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 200 Robux',30000)">Pilih</button></td></tr>
-      <tr><td>300 Robux</td><td>Rp 45.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 300 Robux',45000)">Pilih</button></td></tr>
-      <tr><td>400 Robux</td><td>Rp 60.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 400 Robux',60000)">Pilih</button></td></tr>
-      <tr><td>500 Robux</td><td>Rp 75.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 500 Robux',75000)">Pilih</button></td></tr>
-      <tr><td>600 Robux</td><td>Rp 90.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 600 Robux',90000)">Pilih</button></td></tr>
-      <tr><td>700 Robux</td><td>Rp 100.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 700 Robux',100000)">Pilih</button></td></tr>
-      <tr><td>800 Robux</td><td>Rp 120.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 800 Robux',120000)">Pilih</button></td></tr>
-      <tr><td>900 Robux</td><td>Rp 135.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 900 Robux',135000)">Pilih</button></td></tr>
-      <tr><td>1.000 Robux</td><td>Rp 150.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 1000 Robux',150000)">Pilih</button></td></tr>
-    </table>
-
-    <h3>💸 Fee Midman</h3>
-    <table>
-      <tr><th>Rentang</th><th>Fee</th></tr>
-      <tr><td>1K – 50K</td><td>Rp 2.000</td></tr>
-      <tr><td>50K – 100K</td><td>Rp 3.000</td></tr>
-      <tr><td>100K – 250K</td><td>Rp 4.000</td></tr>
-      <tr><td>250K – 500K</td><td>Rp 5.000</td></tr>
-      <tr><td>500K – 1JT</td><td>Rp 10.000</td></tr>
-      <tr><td>1JT – 10JT</td><td>Rp 25.000</td></tr>
-    </table>
-
-    <h3>💎 Metode Pembayaran</h3>
-    <table>
-      <tr><th>Metode Pembayaran</th><th>Keterangan</th></tr>
-      <tr><td>DANA</td><td>Transfer ke nomor resmi WANG STORE</td></tr>
-      <tr><td>QRIS</td><td>Scan QR resmi yang dikirim admin</td></tr>
-      <tr><td>PayPal</td><td>Transfer ke akun PayPal resmi</td></tr>
-      <tr><td>Crypto</td><td>Transfer ke alamat crypto yang dikonfirmasi admin</td></tr>
-    </table>
-
-    <div class="note">
-      📌 Hubungi kami lewat sosial media resmi di atas untuk pemesanan
+    <div class="produk-card">
+      <h3>Blox Fruit Perm Rocket</h3>
+      <p class="keterangan">Blox Fruit Permanen Rocket</p>
+      <p class="stok">Stok: 999</p>
+      <p class="harga">Rp 3.000</p>
+      <a class="tombol-pesan" href="https://wa.me/628xxxxxx?text=Halo%20WANG%20STORE%2C%20saya%20ingin%20pesan%20Blox%20Fruit%20Perm%20Rocket" target="_blank">Pesan Sekarang</a>
     </div>
 
-    <!-- ===== FORM PESANAN ===== -->
-    <div class="order-form">
-      <h3>📝 Form Pemesanan</h3>
-      <input type="text" id="namaPembeli" placeholder="Username Roblox / Nama Pembeli">
-      <input type="text" id="paketTerpilih" placeholder="Paket yang dipilih (otomatis terisi)" readonly>
-      <input type="number" id="jumlah" placeholder="Jumlah" min="1" value="1">
-      <select id="metodeBayar">
-        <option value="">Pilih Metode Pembayaran</option>
-        <option value="dana">DANA</option>
-        <option value="qris">QRIS</option>
-        <option value="paypal">PayPal</option>
-        <option value="crypto">Crypto</option>
-      </select>
-      <button class="btn-kirim" onclick="kirimPesanan()">Kirim Pesanan ke WhatsApp</button>
+    <div class="produk-card">
+      <h3>Blox Fruit Perm Spin</h3>
+      <p class="keterangan">Blox Fruit Permanen Spin</p>
+      <p class="stok">Stok: 999</p>
+      <p class="harga">Rp 4.500</p>
+      <a class="tombol-pesan" href="https://wa.me/628xxxxxx?text=Halo%20WANG%20STORE%2C%20saya%20ingin%20pesan%20Blox%20Fruit%20Perm%20Spin" target="_blank">Pesan Sekarang</a>
     </div>
-  </div>
+
+  </section>
+
+  <footer>
+    <p>© 2026 WANG STORE - Top Up Game</p>
+  </footer>
 </div>
 
 <script>
-let namaPaket = "";
-let hargaSatuan = 0;
-
-// Fungsi pilih paket
-function pilihPaket(nama, harga){
-  namaPaket = nama;
-  hargaSatuan = harga;
-  document.getElementById("paketTerpilih").value = nama + " | Rp " + harga.toLocaleString('id-ID');
-  alert("✅ Paket telah dipilih: " + nama);
-}
-
-// Fungsi kirim ke WhatsApp
-function kirimPesanan(){
-  const namaPembeli = document.getElementById("namaPembeli").value.trim();
-  const jumlah = parseInt(document.getElementById("jumlah").value);
-  const metode = document.getElementById("metodeBayar").value;
-
-  if(!namaPembeli){
-    alert("⚠️ Isi Username / Nama Pembeli terlebih dahulu!");
-    return;
-  }
-  if(!namaPaket){
-    alert("⚠️ Pilih paket terlebih dahulu!");
-    return;
-  }
-  if(!metode){
-    alert("⚠️ Pilih metode pembayaran!");
-    return;
-  }
-
-  const total = hargaSatuan * jumlah;
-  const pesan = `Halo WANG STORE, saya ingin memesan%0A` +
-                `👤 Username: ${namaPembeli}%0A` +
-                `📦 Paket: ${namaPaket}%0A` +
-                `🔢 Jumlah: ${jumlah}%0A` +
-                `💰 Total: Rp ${total.toLocaleString('id-ID')}%0A` +
-                `💳 Metode: ${metode}`;
-
-  // Nomor WA sudah diisi: 6289503312050
-  window.open(`https://wa.me/6289503312050?text=${pesan}`, "_blank");
-}
-
-// ⭐ Bintang animasi
-const bannerWrap = document.getElementById('bannerWrap');
-function buatBintang() {
-  const star = document.createElement('div');
-  star.className = 'star-random';
-  star.innerText = '★';
-
-  let top;
-  if(Math.random() > 0.5){
-    top = Math.random() * 30;
-  }else{
-    top = 70 + Math.random() * 25;
-  }
-  const left = Math.random() * 92;
-
-  star.style.left = left + '%';
-  star.style.top = top + '%';
-
-  bannerWrap.appendChild(star);
-
-  setTimeout(() => {
-    star.remove();
-  }, 2200);
-}
-
-setInterval(buatBintang, 180);
+document.addEventListener('DOMContentLoaded', function() {
+  console.log("✅ Banner sudah pakai foto sendiri!");
+});
 </script>
-
 </body>
-  </html>
+</html>
